@@ -19,11 +19,11 @@
         $li_slow = count($tablica);
         $li_4 = ceil($li_slow/4);
         $j = 0;
-        echo '<table>';
+        echo '<table class="html">';
         for ($h = 0; $h < $li_4; $h++){
-            echo '<tr>';
+            echo '<tr class="html">';
             for ($i = 0; $i < $kolumny; $i++) {
-                echo '<td>';
+                echo '<td class="html">';
                 if ($j < $li_slow){
                     echo $tablica[$j];
                     $j=$j+1;
@@ -37,10 +37,55 @@
 
     $kolumny = 4;
     renderHTMLTable($tablica, $kolumny);
+    function renderCSV($tablica, $kolumny) {
+        $li_slow = count($tablica);
+        $li_4 = ceil($li_slow/4);
+        $j = 0;
+        echo '-------------------------------------------------<br>';
+        for ($h = 0; $h < $li_4; $h++){
+            echo '';
+            for ($i = 0; $i < $kolumny; $i++) {
+                echo '';
+                if ($j < $li_slow){
+                    echo '"';
+                    echo $tablica[$j];
+                    echo '";';
+                    $j=$j+1;
+                };
+                echo '';
+            };
+            echo '<br>';
+        };
+        echo '-------------------------------------------------';
+    }
+    renderCSV($tablica, $kolumny);
+    function renderMD($tablica, $kolumny) {
+        $li_slow = count($tablica);
+        $li_4 = ceil($li_slow/4);
+        $j = 0;
+        echo '<table>';
+        for ($h = 0; $h < $li_4; $h++){
+            echo '<tr>';
+            for ($i = 0; $i < $kolumny; $i++) {
+                echo '<td>';
+                if ($j < $li_slow){
+                    echo '|';
+                    echo $tablica[$j];
+                    echo '|';
+                    $j=$j+1;
+                };
+                echo '</td>';
+            };
+            echo '</tr>';
+        };
+        echo'</table>';
+
+    }
+    renderMD($tablica, $kolumny);
 ?>
 
 <style>
-table, th, td {
+.html {
   border: 1px solid;
   border-collapse: collapse;
 }
