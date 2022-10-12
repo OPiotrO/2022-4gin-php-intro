@@ -22,7 +22,19 @@ class tableTool implements tableToolInterface{
         $li_wier = ceil($li_slow/$cols);
         $j = 0;
         $tabelka= '<table class="html">';
-        for ($h = 0; $h < $li_wier; $h++){
+        for ($h = 0; $h < 1; $h++){
+            $tabelka .= '<tr class="html">';
+            for ($i = 0; $i < $cols; $i++) {
+                $tabelka .= '<th class="html">';
+                if ($j < $li_slow){
+                    $tabelka .= $posortowane[$j];
+                    $j=$j+1;
+                };
+                $tabelka .= '</th>';
+            };
+            $tabelka .= '</tr>';
+        };
+        for ($h = 1; $h < $li_wier; $h++){
             $tabelka .= '<tr class="html">';
             for ($i = 0; $i < $cols; $i++) {
                 $tabelka .= '<td class="html">';
@@ -66,7 +78,23 @@ class tableTool implements tableToolInterface{
         $li_wier = ceil($li_slow/$cols);
         $j = 0;
         $tabelka= '<table>';
-        for ($h = 0; $h < $li_wier; $h++){
+        for ($h = 0; $h < 1; $h++){
+            $tabelka .= '<tr>';
+            for ($i = 0; $i < $cols; $i++) {
+                $tabelka .= '<td>';
+                if ($j < $li_slow){
+                    $tabelka .= '|';
+                    $tabelka .= $posortowane[$j];
+                    $j=$j+1;
+                };
+                $tabelka .= '<br>';
+                $tabelka .= '|---|';
+                $tabelka .= '</td>';
+            };
+
+            $tabelka .= '</tr>';
+        };
+        for ($h = 1; $h < $li_wier; $h++){
             $tabelka .= '<tr>';
             for ($i = 0; $i < $cols; $i++) {
                 $tabelka .= '<td>';
